@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+   project:
+      build:
+         context: .
+         dockerfile: Dockerfile_web.dev
+      command: python3 manage.py runserver 0.0.0.0:8000
+      volumes:
+        - .:/app
+      ports:
+        - 8003:8000
+      env_file:
+        - .env
+      restart: "on-failure"
+      networks:
+        - project-network
+
+networks:
+   project-network:
+      driver: bridge
