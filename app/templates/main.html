@@ -97,12 +97,12 @@
       </div> -->
     </div>
   </div>
-
+  
   <div class="ui container grid">
     <div class="row">
       <div class="ui basic segment">
         <div class="ui section divider"></div>
-        <h1 class="ui huge header">รายการและสถานะโครงงาน</h1>
+        <h1 class="ui huge header">บทความวิชาการ (Research Paper)</h1>
 
         <div class="ui top attached tabular menu">
           <a class="item active" data-tab="first">ปี พ.ศ. 2565</a>
@@ -153,23 +153,33 @@
                         </div> {% endcomment %}
                         <div class="title">
                           <i class="dropdown icon"></i>
-                          Abstract
+                          บทคัดย่อ
                         </div>
                         <div class="content">
                           <p class="transition visible" style="display: block !important;">The paper demonstrates developing a remote sensing cloud processing platform from the Sentinel-2 dataset (S2) and SMAP supporting the ASEAN agriculture management system. Every month, S2 from the S3 bucket is download to a Varuna Land Monitoring (VLM) platform (on Amazon EC2). Then the pre-processing such as vegetation index (NDVI: Normalized Vegetation Index and NDMI: Normalized Different Moisture Index), cloud masking (using Scene Classification (SC) image), fill-gap (using the mathematical model) are executed for each grid tile over the 98 tiles of the Thailand region (for this initial stage of VLM to the entire ASEAN region further). Each acquisition image is collected and composited into a monthly dataset using the maximum value composite (MVC) method. MVC is a suitable method for plant growth monitoring that is the major purpose of the VLM platform. Then UTM reference image is transformed into a geographic coordinate system. The pixels of each tile are rearranged to fill the gap of each twisted image frame due to the projection transformation process. This process is necessary for the data dissemination platform to cover a large area. The VLM dataset publishes in the OGC web services using GeoServer by ImageMosaic datastore type on the tile caching technology using the GWC S3 BlobStore plugin (expanding the storage throughout S3 bucket technology). Finally, the vegetation indices will publish to geospatial end-user (agricultural researcher community) through WMTS (Web Map Tile Service) protocol. The computing algorithm of the steps is explained and discussed in this papers sections for the recommendations of the next improvement. Finally, the recommendation is explained in the conclusion of this paper.</p>
                         </div>
-                        {% comment %} <div class="title">
+
+                        <div class="title">
+                            <i class="dropdown icon"></i>
+                            Abstract
+                          </div>
+                          <div class="content">
+                            <p class="transition visible" style="display: block !important;">The paper demonstrates developing a remote sensing cloud processing platform from the Sentinel-2 dataset (S2) and SMAP supporting the ASEAN agriculture management system. Every month, S2 from the S3 bucket is download to a Varuna Land Monitoring (VLM) platform (on Amazon EC2). Then the pre-processing such as vegetation index (NDVI: Normalized Vegetation Index and NDMI: Normalized Different Moisture Index), cloud masking (using Scene Classification (SC) image), fill-gap (using the mathematical model) are executed for each grid tile over the 98 tiles of the Thailand region (for this initial stage of VLM to the entire ASEAN region further). Each acquisition image is collected and composited into a monthly dataset using the maximum value composite (MVC) method. MVC is a suitable method for plant growth monitoring that is the major purpose of the VLM platform. Then UTM reference image is transformed into a geographic coordinate system. The pixels of each tile are rearranged to fill the gap of each twisted image frame due to the projection transformation process. This process is necessary for the data dissemination platform to cover a large area. The VLM dataset publishes in the OGC web services using GeoServer by ImageMosaic datastore type on the tile caching technology using the GWC S3 BlobStore plugin (expanding the storage throughout S3 bucket technology). Finally, the vegetation indices will publish to geospatial end-user (agricultural researcher community) through WMTS (Web Map Tile Service) protocol. The computing algorithm of the steps is explained and discussed in this papers sections for the recommendations of the next improvement. Finally, the recommendation is explained in the conclusion of this paper.</p>
+                          </div>
+
+                        <div class="title">
                           <i class="dropdown icon"></i>
-                          How do you acquire a dog?
+                          คำสำคัญ (Keywords)
                         </div>
                         <div class="content">
-                          <p class="transition hidden">Three common ways for a prospective owner to acquire a dog is
-                            from pet shops, private owners, or shelters.</p>
-                          <p class="transition hidden">A pet shop may be the most convenient way to buy a dog. Buying a
-                            dog from a private owner allows you to assess the pedigree and upbringing of your dog before
-                            choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to
-                            a dog who may not find one so readily.</p>
-                        </div> {% endcomment %}
+                          <p class="transition hidden">- การออกแบบตารางการบิน</p>
+                          <p class="transition hidden">- การจัดการเที่ยวบิน</p>
+                          <p class="transition hidden">- อัลกอริทึม</p>
+                          <p class="transition hidden">- Fleet Assignment</p>
+                          <p class="transition hidden">- Fleet Scheduling</p>
+                          <p class="transition hidden">- Algorithm</p>
+                        </div>
+
                       </div>
                     </td>
                   </tr>
