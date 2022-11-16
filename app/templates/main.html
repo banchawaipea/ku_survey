@@ -28,6 +28,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'dist/components/icon.css' %}" />
 
   <link rel="stylesheet" type="text/css" href="{% static 'dist/semantic.min.css' %}" />
+  
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="{% static 'dist/semantic.min.js' %}"></script>
@@ -35,7 +36,15 @@
     $(".menu .item").tab();
   </script>
   <style type="text/css">
+    {% comment %} @import url("https://fonts.googleapis.com/css?family=Prompt&display=swap"); {% endcomment %}
+    /* @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap'); */
+
+    
     body {
+      font-family: "Prompt", sans-serif;
+      color: rgba(0, 0, 0, 0.8);
+      font-weight: 400;
+      line-height: 1.58;
       background-color: #ffffff;
     }
 
