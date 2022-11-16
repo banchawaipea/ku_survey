@@ -105,31 +105,31 @@
         <h1 class="ui huge header">รายการและสถานะโครงงาน</h1>
 
         <div class="ui top attached tabular menu">
-          <a class="item active" data-tab="first">บทความวิชาการ (Research Paper)</a>
-          {% comment %} <a class="item" data-tab="second">Survey Engineering (SV)</a> {% endcomment %}
+          <a class="item active" data-tab="first">ปี พ.ศ. 2565</a>
+          <a class="item" data-tab="second">ปี พ.ศ. 2564</a>
+          <a class="item" data-tab="second">ปี พ.ศ. 2563</a>
         </div>
+        
         <div class="ui bottom attached tab segment active" data-tab="first">
-          <div class="ui bottom attached tab segment active year" data-tab="first">
             <div class="ui ">
-              <div class="ui header accordion">ปี พ.ศ. 2565</div>
-              <table class="ui celled padded table">
+                <table class="ui celled padded table">
                 <thead>
                   <tr>
                     <th class="single line">ผู้วิจัย</th>
                     <th>อาจารย์ที่ปรึกษา</th>
-                    <th>โครงงานวิศวกรรม</th>
+                    <th>บทความวิชาการ (Research Paper)</th>
                   </tr>
                 </thead>
                 <tbody>
 
                   <tr>
                     <td>
-                      <p>นายบุษยมาส สวนเศรษฐ</p>
-                      <p class="single">นายบุษยมาส สวนเศรษฐ</p>
+                      <p class="single line">นายบุษยมาส สวนเศรษฐ</p>
+                      <p class="single line">นายบุษยมาส สวนเศรษฐ</p>
                     </td>
                     <td class="single line">
                       <img class="ui avatar image" src="{% static 'assets/img/elliot.jpg' %}">
-<span><a href="#">Asst. Prof. Rangsan Wongirapak</a></span>
+                        <span><a href="#">Asst. Prof. Rangsan Wongirapak</a></span>
                     </td>
                     <td>
                       <p>
@@ -176,12 +176,12 @@
 
                   <tr>
                     <td>
-                      <p>นายบุษยมาส สวนเศรษฐ</p>
-                      <p class="single">นายบุษยมาส สวนเศรษฐ</p>
+                      <p class="single line">นายบุษยมาส สวนเศรษฐ</p>
+                      <p class="single line">นายบุษยมาส สวนเศรษฐ</p>
                     </td>
                     <td class="single line">
-                      <img class="ui avatar image" src="{% static 'assets/img/elliot.jpg' %}">
-<span><a href="#">Asst. Prof. Rangsan Wongirapak</a></span>
+                      <img class="ui avatar image" src="{% static 'assets/img/pro1.jpeg' %}">
+                        <span><a href="#">Asst. Prof. Rangsan Wongirapak</a></span>
                     </td>
                     <td>
                       <p>
@@ -232,19 +232,9 @@
               </table>
             </div>
           </div>
-          <div class="ui bottom attached tab active" data-tab="first">
-            <div class="ui segment">
-              <div class="ui header">ปี พ.ศ. 2564</div>
-            </div>
-          </div>
-          <div class="ui bottom attached tab active" data-tab="first"></div>
-          <div class="ui bottom attached tab active" data-tab="first">
-            <div class="ui segment">
-              <div class="ui header">ปี พ.ศ. 2563</div>
-            </div>
-          </div>
+          
 
-        </div>
+        
 
 
         <div class="ui bottom attached tab segment" data-tab="second">
@@ -255,19 +245,7 @@
     </div>
   </div>
 
-  <div class="ui inverted vertical footer segment">
-    <div class="ui center aligned container">
-
-      <div class="ui inverted section divider"></div>
-      <img src="{% static 'assets/img/logo.png' %}" class="ui centered mini image" />
-      <div class="ui horizontal inverted small divided link list">
-        <a class="item" href="#">Site Map</a>
-        <a class="item" href="#">Contact Us</a>
-        <a class="item" href="#">Terms and Conditions</a>
-        <a class="item" href="#">Privacy Policy</a>
-      </div>
-    </div>
-  </div>
+  
 </body>
 <script>
   $('.ui.accordion').accordion();
