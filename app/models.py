@@ -1,5 +1,8 @@
 from django.db import models
 
+
+# Path Table Sigle
+
 class Teacher(models.Model):
     name = models.CharField(max_length = 150)
     first_name = models.CharField(max_length = 150)
@@ -16,6 +19,9 @@ class Branch(models.Model):
 
 
 
+
+# path ForeignKey
+
 class Paper(models.Model):
     title = models.CharField(max_length = 255)
     abstract_thai = models.TextField()
@@ -28,7 +34,6 @@ class Paper(models.Model):
     date_paper = models.DateField()
     approve = models.BooleanField(default=False)
 
-    
     def __str__(self):
         return self.title
 
