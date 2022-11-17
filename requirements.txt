@@ -7,3 +7,4 @@ djangorestframework-gis==0.17
 flake8==3.9.0
 psycopg2-binary
 python-environ
+pillow
