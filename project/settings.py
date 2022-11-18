@@ -135,6 +135,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # ******* Deploy settings *******
+
 # if DEBUG:
 #     STATICFILES_DIRS = [Path.joinpath(BASE_DIR, 'static')]
 # else:
@@ -144,10 +145,10 @@ STATIC_URL = '/static/'
 
 
 # ******* Dev settings *******
-#เพิ่มใหม่
+
 STATICFILES_DIRS = [Path.joinpath(BASE_DIR, 'static')]
-# For DEV
-STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles') 
+STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles')
+ 
 # ******* End Dev settings *******
 
 #เพิ่มใหม่

@@ -1,5 +1,4 @@
-from django.db import models
-
+from django.contrib.gis.db import models
 
 # Path Table Sigle
 
@@ -18,7 +17,11 @@ class Branch(models.Model):
     def __str__(self):
         return self.name
 
-
+class Geobase(models.Model):
+    geom = models.PointField(srid=4326, null=True, blank=True)
+    name = models.CharField(max_length = 150)
+    def __str__(self):
+        return self.name
 
 
 
