@@ -75,7 +75,7 @@
         KU Civil Engineering
       </a>
       <a href="#" class="item active">Student</a>
-      <a href="#" class="item">Abouts</a>
+      <a href="admin/" class="item">Admin</a>
       {% comment %} <a href="admin" class="item">Admin</a> {% endcomment %}
       <!--<div class="ui simple dropdown item">
         Dropdown <i class="dropdown icon"></i>
@@ -97,7 +97,6 @@
       </div> -->
     </div>
   </div>
-  
   <div class="ui container grid">
     <div class="row">
       <div class="ui basic segment">
@@ -121,25 +120,34 @@
                   </tr>
                 </thead>
                 <tbody>
-
+                  {% for tt in data_papers %}
+                    {% comment %} {{tt.teachers.first_name}} {% endcomment %}
+                    
                   <tr>
                     <td>
-                      <p class="single line">นายบุษยมาส สวนเศรษฐ</p>
-                      <p class="single line">นายบุษยมาส สวนเศรษฐ</p>
+                      <p class="single line">{{tt.researcher}}</p>
                     </td>
                     <td class="single line">
-                      <img class="ui avatar image" src="{% static 'assets/img/elliot.jpg' %}">
-                        <span><a href="#">Asst. Prof. Rangsan Wongirapak</a></span>
+                      <img class="ui avatar image" src="
+                      {% if tt.teachers.avatar == "" %}
+                        {% static 'assets/img/elliot.jpg' %}
+                      {% else %}
+                        {{tt.teachers.avatar.url}}
+                      {% endif %}
+                      ">
+                        <span><a href="#">{{tt.teachers}}</a></span>
                     </td>
                     <td>
                       <p>
-                        <a href="#">การกัดกร่อนของเหล็กเสริมคอนกรีตในคอนกรีตประเภทต่างๆ</a>
+                        <a href="#">{{tt.title}}</a>
                       </p>
                       <p>
-                        <a class="ui orange ribbon label">สาขาวิศวกรรมสำรวจและสารสนเทศภูมิศาสตร์</a>
-                        <a class="ui blue label">Download</a>
-                        <a class="ui green label">Link</a>
+                        <a class="ui orange ribbon label">{{tt.branchs}}</a>
+                        <a class="ui blue label" href="{{tt.upload_files.url}}" target="_blank">Download</a>
+                        <a class="ui green label" href="{{tt.link_paper}}" target="_blank">Link</a>
+                        {% if tt.approve == False %}
                         <a class="ui grey label">รออนุมัติ </a>
+                        {% endif %}
                       </p>
                       <div class="ui styled accordion">
                         {% comment %} <div class="title active">
@@ -156,7 +164,7 @@
                           บทคัดย่อ
                         </div>
                         <div class="content">
-                          <p class="transition visible" style="display: block !important;">The paper demonstrates developing a remote sensing cloud processing platform from the Sentinel-2 dataset (S2) and SMAP supporting the ASEAN agriculture management system. Every month, S2 from the S3 bucket is download to a Varuna Land Monitoring (VLM) platform (on Amazon EC2). Then the pre-processing such as vegetation index (NDVI: Normalized Vegetation Index and NDMI: Normalized Different Moisture Index), cloud masking (using Scene Classification (SC) image), fill-gap (using the mathematical model) are executed for each grid tile over the 98 tiles of the Thailand region (for this initial stage of VLM to the entire ASEAN region further). Each acquisition image is collected and composited into a monthly dataset using the maximum value composite (MVC) method. MVC is a suitable method for plant growth monitoring that is the major purpose of the VLM platform. Then UTM reference image is transformed into a geographic coordinate system. The pixels of each tile are rearranged to fill the gap of each twisted image frame due to the projection transformation process. This process is necessary for the data dissemination platform to cover a large area. The VLM dataset publishes in the OGC web services using GeoServer by ImageMosaic datastore type on the tile caching technology using the GWC S3 BlobStore plugin (expanding the storage throughout S3 bucket technology). Finally, the vegetation indices will publish to geospatial end-user (agricultural researcher community) through WMTS (Web Map Tile Service) protocol. The computing algorithm of the steps is explained and discussed in this papers sections for the recommendations of the next improvement. Finally, the recommendation is explained in the conclusion of this paper.</p>
+                          <p class="transition visible" style="display: block !important;">{{tt.abstract_thai}}</p>
                         </div>
 
                         <div class="title">
@@ -164,7 +172,7 @@
                             Abstract
                           </div>
                           <div class="content">
-                            <p class="transition visible" style="display: block !important;">The paper demonstrates developing a remote sensing cloud processing platform from the Sentinel-2 dataset (S2) and SMAP supporting the ASEAN agriculture management system. Every month, S2 from the S3 bucket is download to a Varuna Land Monitoring (VLM) platform (on Amazon EC2). Then the pre-processing such as vegetation index (NDVI: Normalized Vegetation Index and NDMI: Normalized Different Moisture Index), cloud masking (using Scene Classification (SC) image), fill-gap (using the mathematical model) are executed for each grid tile over the 98 tiles of the Thailand region (for this initial stage of VLM to the entire ASEAN region further). Each acquisition image is collected and composited into a monthly dataset using the maximum value composite (MVC) method. MVC is a suitable method for plant growth monitoring that is the major purpose of the VLM platform. Then UTM reference image is transformed into a geographic coordinate system. The pixels of each tile are rearranged to fill the gap of each twisted image frame due to the projection transformation process. This process is necessary for the data dissemination platform to cover a large area. The VLM dataset publishes in the OGC web services using GeoServer by ImageMosaic datastore type on the tile caching technology using the GWC S3 BlobStore plugin (expanding the storage throughout S3 bucket technology). Finally, the vegetation indices will publish to geospatial end-user (agricultural researcher community) through WMTS (Web Map Tile Service) protocol. The computing algorithm of the steps is explained and discussed in this papers sections for the recommendations of the next improvement. Finally, the recommendation is explained in the conclusion of this paper.</p>
+                            <p class="transition visible" style="display: block !important;">{{tt.abstract_eng}}</p>
                           </div>
 
                         <div class="title">
@@ -172,71 +180,14 @@
                           คำสำคัญ (Keywords)
                         </div>
                         <div class="content">
-                          <p class="transition hidden">- การออกแบบตารางการบิน</p>
-                          <p class="transition hidden">- การจัดการเที่ยวบิน</p>
-                          <p class="transition hidden">- อัลกอริทึม</p>
-                          <p class="transition hidden">- Fleet Assignment</p>
-                          <p class="transition hidden">- Fleet Scheduling</p>
-                          <p class="transition hidden">- Algorithm</p>
+                          <p class="transition hidden">{{tt.keyword}}</p>
                         </div>
 
                       </div>
                     </td>
                   </tr>
-
-                  <tr>
-                    <td>
-                      <p class="single line">นายบุษยมาส สวนเศรษฐ</p>
-                      <p class="single line">นายบุษยมาส สวนเศรษฐ</p>
-                    </td>
-                    <td class="single line">
-                      <img class="ui avatar image" src="{% static 'assets/img/pro1.jpeg' %}">
-                        <span><a href="#">Asst. Prof. Rangsan Wongirapak</a></span>
-                    </td>
-                    <td>
-                      <p>
-                        <a href="#">การกัดกร่อนของเหล็กเสริมคอนกรีตในคอนกรีตประเภทต่างๆ</a>
-                      </p>
-                      <p>
-                        <a class="ui orange ribbon label">สาขาวิศวกรรมสำรวจและสารสนเทศภูมิศาสตร์</a>
-                        <a class="ui blue label">Download</a>
-                        <a class="ui green label">Link</a>
-                        <a class="ui grey label">รออนุมัติ </a>
-                      </p>
-                      <div class="ui styled accordion">
-                        {% comment %} <div class="title active">
-                          <i class="dropdown icon"></i>
-                          รายละเอียด
-                        </div>
-                        <div class="content active">
-                          <p class="transition visible" style="display: block !important;">
-                            วารสารวิชาการสมาคมคอนกรีตแห?งประเทศไทย, ปีที่ 5, ฉบับที่ 1, มกราคม - มิถุนายน
-                            2017, หน้า 14-2 (ISSN: 23509260), พิชิตนันท์ วันรักษ์ , 2017</p>
-                        </div> {% endcomment %}
-                        <div class="title">
-                          <i class="dropdown icon"></i>
-                          Abstract
-                        </div>
-                        <div class="content">
-                          <p class="transition visible" style="display: block !important;">There are many breeds of dogs. Each breed varies in size and
-                            temperament. Owners often select a breed of dog that they find to be compatible with their
-                            own lifestyle and desires from a companion.</p>
-                        </div>
-                        {% comment %} <div class="title">
-                          <i class="dropdown icon"></i>
-                          How do you acquire a dog?
-                        </div>
-                        <div class="content">
-                          <p class="transition hidden">Three common ways for a prospective owner to acquire a dog is
-                            from pet shops, private owners, or shelters.</p>
-                          <p class="transition hidden">A pet shop may be the most convenient way to buy a dog. Buying a
-                            dog from a private owner allows you to assess the pedigree and upbringing of your dog before
-                            choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to
-                            a dog who may not find one so readily.</p>
-                        </div> {% endcomment %}
-                      </div>
-                    </td>
-                  </tr>
+                  {% endfor %}
+                  
                 </tbody>
 
               </table>
