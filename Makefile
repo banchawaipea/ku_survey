@@ -30,3 +30,6 @@ volume:
 
 shell:
 	docker-compose exec project python3 manage.py shell
+
+collectstatic:
+	docker-compose exec project python3 manage.py collectstatic --noinput
