@@ -16,7 +16,6 @@ urlpatterns = [
     # url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
 
     # ******* End Deploy settings *******
-
     path('admin/', admin.site.urls),
     path('',include('app.urls')),
 ]

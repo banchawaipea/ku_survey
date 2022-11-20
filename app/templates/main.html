@@ -143,8 +143,12 @@
                       </p>
                       <p>
                         <a class="ui orange ribbon label">{{tt.branchs}}</a>
+                        {% if tt.upload_files.url != "" %}
                         <a class="ui blue label" href="{{tt.upload_files.url}}" target="_blank">Download</a>
+                        {% endif %}
+                        {% if tt.link_paper != "" %}
                         <a class="ui green label" href="{{tt.link_paper}}" target="_blank">Link</a>
+                        {% endif %}
                         {% if tt.approve == False %}
                         <a class="ui grey label">รออนุมัติ </a>
                         {% endif %}
