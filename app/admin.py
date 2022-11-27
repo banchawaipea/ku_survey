@@ -5,4 +5,3 @@ from .models import *
 admin.site.register(Paper)
 admin.site.register(Branch)
 admin.site.register(Teacher)
-admin.site.register(Geobase)
