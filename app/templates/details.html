@@ -1,0 +1,70 @@
+{% extends 'main.html' %}
+
+{% block title %}{{ paper.title_th }}{% endblock %}
+
+{% block content %}
+<div class="ui container grid">
+    <div class="row">
+      <div class="ui basic segment">
+        <div class="ui section divider"></div>
+        <h2 class="ui header">รายละเอียดโครงงาน</h2>
+        <div class="ui section divider"></div>
+        <h3>ชื่อโครงงานภาษาไทย</h3>
+        {{ paper.title_th }}
+
+        {% if paper.title_en %}
+        <h3>ชื่อโครงงานภาษาอังกฤษ</h3>
+        {{ paper.title_en }}
+        {% endif %}
+
+        <h3>ผู้พัฒนา</h3>
+        {{ paper.researcher }}
+        <h3>อาจารย์ที่ปรึกษาหลัก</h3>
+        {{ paper.teachers}}
+        {% comment %} <h3>อาจารย์ที่ปรึกษาร่วม</h3>
+        - {% endcomment %}
+        <h3>บทคัดย่อ</h3>
+        {{ paper.abstract_thai }}
+        <h3>Abstract</h3>
+        {{ paper.abstract_eng }}
+        <h3>คำสำคัญ (Keywords)</h3>
+        {{ paper.keywords }}
+        
+        {% if paper.upload_files.url != None %}
+        <h3><a href="{{paper.upload_files.url}}" target="_blank">Download เอกสาร</a></h3>
+        {% endif %}
+
+        {% if paper.link_paper %}
+        <h3><a href="{{paper.link_paper}}" target="_blank">Link Paper</a></h3>
+        {% endif %}
+
+        <div class="ui section divider"></div>
+        <h2>สถานะการนำเข้าข้อมูล</h2>
+        {% comment %} <h3>ผู้นำเข้าข้อมูลครั้งแรก</h3>
+        นาย พิชวัชร ลัคนาธิติ  {% endcomment %}
+        <h3>นำเข้าเมื่อ</h3>
+        {{ paper.date_paper}}
+        {% comment %} เมื่อ May 15, 2022, 3:26 a.m. โดย นาย พิชวัชร ลัคนาธิติ {% endcomment %}
+        <h3>สถานะการอนุมัติ</h3>
+        <div class="ui mini steps">
+            {% if paper.approve == True %}
+            <div class="disabled step">
+              <div class="content">
+                <a class="ui teal tag label">อนุมัติ</a>
+                <!--<div class="description">Verify order details</div>-->
+              </div>
+            </div>
+            {% else %}
+            <div class="active step">
+                <div class="content">
+                  <a class="ui red tag label">รออนุมัติ</a>
+                  <!--<div class="description">Enter billing information</div>-->
+                </div>
+              </div>
+            {% endif %} 
+        </div>
+ 
+      </div>
+    </div>
+  </div>
+{% endblock content %}

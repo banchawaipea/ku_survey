@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
   <!-- Site Properties -->
-  <title>บทความวิชาการ (Research Paper) มหาวิทยาลัยเกษตรศาสตร์</title>
+  <title>{% block title %}{% endblock title %}</title>
 
   <link rel="stylesheet" type="text/css" href="{% static 'dist/components/reset.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'dist/components/site.css' %} " />
@@ -97,140 +97,10 @@
       </div> -->
     </div>
   </div>
-  <div class="ui container grid">
-    <div class="row">
-      <div class="ui basic segment">
-        <div class="ui section divider"></div>
-        <h1 class="ui huge header">บทความวิชาการ (Research Paper)</h1>
-
-        {% comment %} <div class="ui top attached tabular menu">
-          <a class="item active" data-tab="first">ปี พ.ศ. 2565</a>
-          <a class="item" data-tab="second">ปี พ.ศ. 2564</a>
-          <a class="item" data-tab="second">ปี พ.ศ. 2563</a>
-        </div> {% endcomment %}
-        
-        <div class="ui bottom attached tab segment active" data-tab="first">
-            <div class="ui ">
-                <table class="ui celled padded table">
-                <thead>
-                  <tr>
-                    <th class="single line">ผู้วิจัย</th>
-                    <th>อาจารย์ที่ปรึกษา</th>
-                    <th>บทความวิชาการ (Research Paper)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for tt in page %}
-                    {% comment %} {{tt.teachers.first_name}} {% endcomment %}
-                    
-                  <tr>
-                    <td>
-                      <p class="single line">{{tt.researcher}}</p>
-                    </td>
-                    <td class="single line">
-                      <img class="ui avatar image" src="
-                      {% if tt.teachers.avatar == "" %}
-                        {% static 'assets/img/elliot.jpg' %}
-                      {% else %}
-                        {{tt.teachers.avatar.url}}
-                      {% endif %}
-                      ">
-                        <span><a href="#">{{tt.teachers}}</a></span>
-                    </td>
-                    <td>
-                      <p>
-                        <a href="#">{{tt.title_th}}</a>
-                      </p>
-                      <p>
-                        <a class="ui orange ribbon label">{{tt.branchs}}</a>
-                        {% if tt.upload_files.url != "" %}
-                        <a class="ui blue label" href="{{tt.upload_files.url}}" target="_blank">Download</a>
-                        {% endif %}
-                        {% if tt.link_paper != "" %}
-                        <a class="ui green label" href="{{tt.link_paper}}" target="_blank">Link</a>
-                        {% endif %}
-                        {% if tt.approve == False %}
-                        <a class="ui grey label">รออนุมัติ </a>
-                        {% endif %}
-                      </p>
-                      <div class="ui styled accordion">
-                        {% comment %} <div class="title active">
-                          <i class="dropdown icon"></i>
-                          รายละเอียด
-                        </div>
-                        <div class="content active">
-                          <p class="transition visible" style="display: block !important;">
-                            วารสารวิชาการสมาคมคอนกรีตแห?งประเทศไทย, ปีที่ 5, ฉบับที่ 1, มกราคม - มิถุนายน
-                            2017, หน้า 14-2 (ISSN: 23509260), พิชิตนันท์ วันรักษ์ , 2017</p>
-                        </div> {% endcomment %}
-                        <div class="title">
-                          <i class="dropdown icon"></i>
-                          บทคัดย่อ
-                        </div>
-                        <div class="content">
-                          <p class="transition visible" style="display: block !important;">{{tt.abstract_thai}}</p>
-                        </div>
-
-                        <div class="title">
-                            <i class="dropdown icon"></i>
-                            Abstract
-                          </div>
-                          <div class="content">
-                            <p class="transition visible" style="display: block !important;">{{tt.abstract_eng}}</p>
-                          </div>
-
-                        <div class="title">
-                          <i class="dropdown icon"></i>
-                          คำสำคัญ (Keywords)
-                        </div>
-                        <div class="content">
-                          <p class="transition hidden">{{tt.keyword}}</p>
-                        </div>
-
-                      </div>
-                    </td>
-                  </tr>
-                  {% endfor %}
-                  
-                </tbody>
-
-              </table>
-            </div>
-          </div>
-          
-          <div class="ui basic segment center aligned">
-            <div class="ui pagination menu">
-              {% if page.has_previous %}
-              <a class="item" href="{% url 'pg_pvnx' pg=page.previous_page_number %}">
-                หน้าที่แล้ว
-              </a>
-              {% endif %}
-              
-              {% for n in page.paginator.page_range %}
-              {% if n != page.number %}
-              <a class="item" href="{% url 'pg_pvnx' pg=n %}"> {{n}}</a>
-              {% else %}
-              <a class="active item"> {{n}}</a>
-              {% endif %}
-              
-              {% endfor %}
-              
-              
-              {% if page.has_next %}
-              <a class="item" href="{% url 'pg_pvnx' pg=page.next_page_number %}">
-                หน้าถัดไป
-              </a>
-              {% endif %}
-            </div>
-          </div>
-          
-        <div class="ui bottom attached tab segment" data-tab="second">
-          Second
-        </div>
-
-      </div>
-    </div>
-  </div>
+  {% block content %}
+  
+  {% endblock content %}
+  
 
   
 </body>

@@ -16,9 +16,13 @@ def Index(request):
     # context['data_paper'] = Paper.objects.all()
     # Add in a QuerySet of all the books
     # context['paper_list'] = Paper.objects.all()
-    return render(request, 'main.html', context)
+    return render(request, 'index.html', context)
 
-
+def Details(request, paper_id):
+    context = {
+        'paper':Paper.objects.get(id=paper_id)
+    }
+    return render(request, 'details.html', context)
 
 def Pagination_pvnx(request, pg):
     if pg == None:
