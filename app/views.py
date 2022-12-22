@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 def Index(request):
     
     rows = Paper.objects.all().order_by('-id') # ดึงข้อมูลจาก model มาแสดง
-    pgn = Paginator(rows, 2) # แบ่งหน้าข้อมูล
+    pgn = Paginator(rows, 8) # แบ่งหน้าข้อมูล
     page = pgn.get_page(1) # ดึงหน้าที่เลือกมาแสดง
     context = {
         'page':page,
