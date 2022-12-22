@@ -29,7 +29,7 @@ def Pagination_pvnx(request, pg):
         pg = 1
     
     rows = Paper.objects.all().order_by('-id') # ดึงข้อมูลจาก model มาแสดง
-    pgn = Paginator(rows, 2) # แบ่งหน้าข้อมูล
+    pgn = Paginator(rows, 8) # แบ่งหน้าข้อมูล
     page = pgn.get_page(pg) # ดึงหน้าที่เลือกมาแสดง
     context = {
         'page':page,
